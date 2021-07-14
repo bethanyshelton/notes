@@ -1,10 +1,13 @@
-import "./App.css";
+import AddNote from "./components/AddNote";
+import Note from "./components/Note";
+import Footer from "./components/Footer";
 
 function App() {
 	return (
-		<div className="App">
-			<h1 className="font-festive text-5xl">Take a note!</h1>
-			<p className="font-zen font-bold text-2xl">This is a note.</p>
+		<div className="m-8">
+			<AddNote />
+			<div className="grid grid-flow-row gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6"></div>
+			<Footer />
 		</div>
 	);
 }
