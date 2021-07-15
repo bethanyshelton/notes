@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Input from "./Input";
+import Button from "./Button";
 
 function AddNote() {
 	const [note, setNote] = useState({
@@ -20,11 +21,11 @@ function AddNote() {
 
 	return (
 		<div>
-			<form className="flex flex-col max-w-md bg-purple-50 border rounded-xl justify-center items-center shadow-lg">
-				<div className="w-full border-b-2 border-purple-700 bg-purple-50">
+			<form className="flex flex-col max-w-md justify-center bg-teal items-center shadow-xl ring ring-teal ring-offset-4">
+				<div className="w-full border-b-4 border-white">
 					<Input
 						type="text"
-						placeholder="my title..."
+						placeholder="a new title..."
 						name="title"
 						value={note.title}
 						onchange={handleChange}
@@ -33,11 +34,14 @@ function AddNote() {
 				<div className="w-full">
 					<Input
 						type="text"
-						placeholder="my note..."
+						placeholder="a new note..."
 						name="content"
 						value={note.content}
 						onchange={handleChange}
 					/>
+				</div>
+				<div>
+					<Button>+</Button>
 				</div>
 			</form>
 		</div>

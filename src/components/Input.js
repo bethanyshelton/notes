@@ -2,9 +2,12 @@ import React from "react";
 
 function Input(props) {
 	return (
-		<div>
+		<div className="flex justify-center ">
 			<input
-				className="p-2 px-8 w-full bg-purple-50 font-zen text-2xl text-purple-700 font-bold placeholder-purple-700 placeholder-opacity-40"
+				className={
+					"p-2 px-8 w-11/12 font-zen text-2xl font-bold" +
+					(props.name === "title" ? "bg-teal" : "bg-white")
+				}
 				type={props.type}
 				placeholder={props.placeholder}
 				name={props.name}
