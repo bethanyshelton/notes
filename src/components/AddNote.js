@@ -20,9 +20,9 @@ function AddNote() {
 	}
 
 	return (
-		<div>
-			<form className="flex flex-col max-w-md justify-center bg-teal items-center shadow-xl ring ring-teal ring-offset-4">
-				<div className="w-full border-b-4 border-white">
+		<div className="absolute bottom-8 right-8 w-96">
+			<form className="flex flex-col max-w-md justify-center bg-teal items-center shadow-xl">
+				<div className="w-full">
 					<Input
 						type="text"
 						placeholder="a new title..."
@@ -41,7 +41,7 @@ function AddNote() {
 					/>
 				</div>
 				<div>
-					<Button>+</Button>
+					<Button className="bg-pink">+</Button>
 				</div>
 			</form>
 		</div>
