@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
 
-function AddNote() {
+function AddNote(props) {
 	const [note, setNote] = useState({
 		title: "",
 		content: "",
@@ -10,7 +10,7 @@ function AddNote() {
 
 	function handleChange(event) {
 		const { name, value } = event.target;
-
+		//update note state while typing
 		setNote((prevNote) => {
 			return {
 				...prevNote,
@@ -19,9 +19,24 @@ function AddNote() {
 		});
 	}
 
+	function sendNewNote(event) {
+		//take contents of note and add to notes array on App.js
+		//use props to send current note to addNote func on App.js
+		props.onAdd(note);
+		//reset note to blank
+		setNote({
+			title: "",
+			content: "",
+		});
+		event.preventDefault();
+	}
+
 	return (
 		<div className="absolute bottom-8 right-8 w-96">
-			<form className="flex flex-col max-w-md justify-center bg-teal items-center shadow-xl">
+			<form
+				className="flex flex-col max-w-md justify-center bg-teal items-center shadow-xl h-48"
+				onSubmit={sendNewNote}
+			>
 				<div className="w-full">
 					<Input
 						type="text"
@@ -40,8 +55,8 @@ function AddNote() {
 						onchange={handleChange}
 					/>
 				</div>
-				<div>
-					<Button className="bg-pink">+</Button>
+				<div className="relative w-full">
+					<Button>+</Button>
 				</div>
 			</form>
 		</div>
