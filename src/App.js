@@ -12,16 +12,28 @@ function App() {
 		});
 	}
 
-	// function deleteNote(key) {
-	// 	notes.filter(note);
-	// }
+	function deleteNote(id) {
+		setNotes((prevNotes) => {
+			return prevNotes.filter((note, index) => {
+				return index !== id;
+			});
+		});
+	}
 
 	return (
 		<div className="relative h-screen overflow-hidden">
 			<div className="flex flex-wrap">
 				<AddNote onAdd={addNewNote} />
 				{notes.map((note, index) => {
-					return <Note key={index} title={note.title} content={note.content} />;
+					return (
+						<Note
+							key={index}
+							id={index}
+							title={note.title}
+							content={note.content}
+							onDelete={deleteNote}
+						/>
+					);
 				})}
 				<div className="grid grid-flow-row gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6"></div>
 				<Footer />

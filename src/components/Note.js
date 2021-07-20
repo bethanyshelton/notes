@@ -2,14 +2,19 @@ import React from "react";
 import Button from "./Button";
 
 function Note(props) {
+	function handleClick(event) {
+		props.onDelete(props.id);
+		event.preventDefault();
+	}
+
 	return (
 		<div className="flex-none m-8 w-1/6 bg-white border-2 border-yellow justify-center items-center shadow-xl">
 			<div className="relative w-full bg-yellow text-purple-100 text-center">
 				<h1 className="relative p-4 font-festive text-3xl">
 					{props.title}
-					<div className="absolute -top-4 -right-2">
+					<form onSubmit={handleClick} className="absolute -top-4 -right-2">
 						<Button>-</Button>
-					</div>
+					</form>
 				</h1>
 			</div>
 			<div>
